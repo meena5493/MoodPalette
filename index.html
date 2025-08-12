@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Mirror - Daily Mood Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title">
+                <i class="fas fa-mirror"></i>
+                Mood Mirror
+            </h1>
+            <p class="app-subtitle">How are you feeling today?</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Current mood display -->
+            <div class="mood-display" id="moodDisplay">
+                <div class="current-mood">
+                    <span class="mood-icon" id="moodIcon">😊</span>
+                    <h2 class="mood-text" id="moodText">Select your mood</h2>
+                </div>
+                <div class="quote-container">
+                    <blockquote class="motivational-quote" id="motivationalQuote">
+                        "Choose your mood and let your day begin with positivity!"
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Mood selection buttons -->
+            <div class="mood-buttons">
+                <button class="mood-btn" data-mood="happy" aria-label="Happy mood">
+                    <i class="fas fa-smile"></i>
+                    <span>Happy</span>
+                </button>
+                <button class="mood-btn" data-mood="sad" aria-label="Sad mood">
+                    <i class="fas fa-frown"></i>
+                    <span>Sad</span>
+                </button>
+                <button class="mood-btn" data-mood="angry" aria-label="Angry mood">
+                    <i class="fas fa-angry"></i>
+                    <span>Angry</span>
+                </button>
+                <button class="mood-btn" data-mood="tired" aria-label="Tired mood">
+                    <i class="fas fa-tired"></i>
+                    <span>Tired</span>
+                </button>
+                <button class="mood-btn" data-mood="excited" aria-label="Excited mood">
+                    <i class="fas fa-grin-stars"></i>
+                    <span>Excited</span>
+                </button>
+            </div>
+
+            <!-- Last mood indicator -->
+            <div class="last-mood" id="lastMood">
+                <small>Last mood: <span id="lastMoodText">None</span></small>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Mood Mirror. Track your emotions, embrace your feelings.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

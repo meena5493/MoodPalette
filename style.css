@@ -1,0 +1,371 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Default colors */
+    --primary-color: #667eea;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 15px;
+    
+    /* Mood colors */
+    --happy-color: #fff9c4;
+    --sad-color: #bfdbfe;
+    --angry-color: #fecaca;
+    --tired-color: #e5e7eb;
+    --excited-color: #e9d5ff;
+    
+    /* Mood accent colors */
+    --happy-accent: #fbbf24;
+    --sad-accent: #3b82f6;
+    --angry-accent: #ef4444;
+    --tired-accent: #6b7280;
+    --excited-accent: #8b5cf6;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), #764ba2);
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: background 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Mood-specific body backgrounds */
+body.happy {
+    background: linear-gradient(135deg, var(--happy-color), #fef3c7);
+}
+
+body.sad {
+    background: linear-gradient(135deg, var(--sad-color), #dbeafe);
+}
+
+body.angry {
+    background: linear-gradient(135deg, var(--angry-color), #fee2e2);
+}
+
+body.tired {
+    background: linear-gradient(135deg, var(--tired-color), #f3f4f6);
+}
+
+body.excited {
+    background: linear-gradient(135deg, var(--excited-color), #ede9fe);
+}
+
+.container {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 40px var(--shadow);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header styles */
+.header {
+    margin-bottom: 40px;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.app-title i {
+    font-size: 2rem;
+}
+
+.app-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* Main content */
+.main-content {
+    margin-bottom: 30px;
+}
+
+.mood-display {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: var(--border-radius);
+    border: 2px solid #e2e8f0;
+    transition: all 0.5s ease;
+}
+
+.current-mood {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.mood-icon {
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.mood-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.quote-container {
+    margin-top: 20px;
+}
+
+.motivational-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.5s ease;
+}
+
+/* Mood buttons */
+.mood-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.mood-btn {
+    background: var(--white);
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    padding: 20px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mood-btn i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.mood-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow);
+    border-color: var(--primary-color);
+}
+
+.mood-btn:active {
+    transform: translateY(-2px);
+}
+
+.mood-btn.active {
+    border-width: 3px;
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* Specific mood button styles */
+.mood-btn[data-mood="happy"]:hover,
+.mood-btn[data-mood="happy"].active {
+    border-color: var(--happy-accent);
+    background: var(--happy-color);
+    color: #92400e;
+}
+
+.mood-btn[data-mood="sad"]:hover,
+.mood-btn[data-mood="sad"].active {
+    border-color: var(--sad-accent);
+    background: var(--sad-color);
+    color: #1e40af;
+}
+
+.mood-btn[data-mood="angry"]:hover,
+.mood-btn[data-mood="angry"].active {
+    border-color: var(--angry-accent);
+    background: var(--angry-color);
+    color: #b91c1c;
+}
+
+.mood-btn[data-mood="tired"]:hover,
+.mood-btn[data-mood="tired"].active {
+    border-color: var(--tired-accent);
+    background: var(--tired-color);
+    color: #374151;
+}
+
+.mood-btn[data-mood="excited"]:hover,
+.mood-btn[data-mood="excited"].active {
+    border-color: var(--excited-accent);
+    background: var(--excited-color);
+    color: #6b21a8;
+}
+
+/* Last mood indicator */
+.last-mood {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Animations */
+@keyframes moodChange {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mood-display.changing {
+    animation: moodChange 0.6s ease;
+}
+
+.mood-icon.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .app-title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .current-mood {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .mood-text {
+        font-size: 1.5rem;
+    }
+    
+    .mood-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .mood-btn {
+        padding: 15px 10px;
+        min-height: 80px;
+    }
+    
+    .motivational-quote {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 1.8rem;
+    }
+    
+    .mood-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .mood-btn {
+        flex-direction: row;
+        justify-content: center;
+        min-height: 60px;
+        gap: 10px;
+    }
+    
+    .container {
+        padding: 25px 15px;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.mood-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .mood-btn {
+        border-width: 3px;
+    }
+    
+    .motivational-quote {
+        border-left-width: 6px;
+    }
+}
